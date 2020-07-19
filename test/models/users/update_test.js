@@ -1,6 +1,6 @@
 require('dotenv').config()
 const assert = require('assert');
-const User = require('../models/user');
+const User = require('../../../models/user');
 const mongoose = require('mongoose');
 const dbPassword = process.env.DB_PASSWORD
 const uri = `mongodb+srv://cdbeltran:${dbPassword}@concert-tracker.vvfpq.mongodb.net/concert-tracker?retryWrites=true&w=majority`
