@@ -1,5 +1,6 @@
 require('dotenv').config()
 const assert = require('assert');
+const expect = require('chai').expect;
 const User = require('../../../models/user');
 const mongoose = require('mongoose');
 const dbPassword = process.env.DB_PASSWORD
@@ -25,7 +26,7 @@ beforeEach((done) => {
     });
 });
 
-describe('Creating documents', () => {
+describe('Creating user documents', () => {
     it('creates a user', (done) => {
         //assertion is not included in mocha so 
         //require assert which was installed along with mocha
@@ -40,4 +41,59 @@ describe('Creating documents', () => {
                 done();
             });
     });
+
+    it('should be invalid if name is empty', (done) => {
+        const user = new User()
+
+        user.validate((err) => {
+            expect(err.errors.name).to.exist
+            done()
+        })
+    })
+
+    it('should be invalid if email is empty', (done) => {
+        const user = new User()
+
+        user.validate((err) => {
+            expect(err.errors.email).to.exist
+            done()
+        })
+    })
+
+    it('should be invalid if password is empty', (done) => {
+        const user = new User()
+
+        user.validate((err) => {
+            expect(err.errors.password).to.exist
+            done()
+        })
+    })
+
+
+    it('should be invalid if email is not valid email', (done) => {
+        const user = new User({
+            name: 'Peter Pan',
+            email: "neverlandatgmail.com",
+            password: "flywithme24"
+        });
+
+        user.validate((err) => {
+            expect(err.errors.email).to.exist
+            done()
+        })
+    })
+
+    it('should be invalid if password is less than 7 characters', (done) => {
+        const user = new User({
+            name: 'Peter Pan',
+            email: "neverlandatgmail.com",
+            password: "flyfly"
+        });
+
+        user.validate((err) => {
+            expect(err.errors.password).to.exist
+            done()
+        })
+    })
+
 });

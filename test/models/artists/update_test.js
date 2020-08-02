@@ -56,7 +56,7 @@ describe('Updating a artist', () => {
     it('update artist using instance', (done) => {
         //useful to update multiple fields of the object
         assertHelper(artist.updateOne({
-            name: 'Aerosmith'
+            name: 'Aerosmith',
         }), done);
     });
 
