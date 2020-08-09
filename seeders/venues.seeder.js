@@ -6,8 +6,18 @@ import {
 } from '../models/venue';
 
 const data = [{
-
-}];
+    name: 'Red Rocks Amphitheatre',
+    location: 'Morrison, CO'
+  },
+  {
+    name: 'Hollywood Bowl',
+    location: 'Hollywood, CA'
+  },
+  {
+    name: 'The Fillmore',
+    location: 'San Francisco, CA'
+  }
+];
 
 class VenuesSeeder extends Seeder {
 

@@ -1,4 +1,8 @@
 import mongoose from 'mongoose';
+import Users from './seeders/users.seeder'
+import Artists from './seeders/artists.seeder'
+import Venues from './seeders/venues.seeder'
+import Concerts from './seeders/concerts.seeder'
 const mongoose = require('mongoose');
 const dbPassword = process.env.DB_PASSWORD
 const uri = `mongodb+srv://cdbeltran:${dbPassword}@concert-tracker.vvfpq.mongodb.net/concert-tracker?retryWrites=true&w=majority`
@@ -12,7 +16,10 @@ mongoose.Promise = global.Promise;
  * @type {Object}
  */
 export const seedersList = {
-
+  Artists,
+  Venues,
+  Concerts,
+  Users
 };
 /**
  * Connect to mongodb implementation

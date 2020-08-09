@@ -6,17 +6,30 @@ import {
 } from '../models/user';
 
 const data = [{
-
-}];
+    name: 'Leonardo',
+    email: 'leo@gmail.com',
+    password: 'turtletime1',
+  },
+  {
+    name: 'Donnatello',
+    email: 'donnie@gmail.com',
+    password: 'turtletime1'
+  },
+  {
+    name: 'Raphael',
+    email: 'raph@gmail.com',
+    password: 'turtlestuff1'
+  }
+];
 
 class UsersSeeder extends Seeder {
 
   async shouldRun() {
-    return Model.countDocuments().exec().then(count => count === 0);
+    return User.countDocuments().exec().then(count => count === 0);
   }
 
   async run() {
-    return Model.create(data);
+    return User.create(data);
   }
 }
 

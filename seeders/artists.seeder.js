@@ -6,8 +6,18 @@ import {
 } from '../models/artist';
 
 const data = [{
-
-}];
+    name: 'Led Zeppelin',
+    genres: ['Classic Rock']
+  },
+  {
+    name: 'Nirvana',
+    genres: ['Grunge', 'Alternative Rock']
+  },
+  {
+    name: 'Pink Floyd',
+    genres: ['Classic Rock', 'Psychedelic Rock']
+  }
+];
 
 class ArtistsSeeder extends Seeder {
 
