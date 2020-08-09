@@ -72,7 +72,7 @@ describe('Deleting a concert', () => {
             });
     });
 
-    it('removes multiple venues', (done) => {
+    it('removes multiple concerts', (done) => {
         Venue.deleteMany({
                 name: 'Red Rocks Amphitheatre'
             })
@@ -99,7 +99,7 @@ describe('Deleting a concert', () => {
     });
 
     it('removes a venue using id', (done) => {
-        Venue.findByIdAndRemove(venue._id)
+        Venue.findByIdAndRemove(concert._id)
             // the following code block is repeated again and again
             .then(() => Venue.findOne({
                 name: 'Red Rocks Amphitheatre'
